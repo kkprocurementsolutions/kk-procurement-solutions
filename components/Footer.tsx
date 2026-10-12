@@ -4,9 +4,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-800 bg-slate-950 text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-20">
-        <div className="grid gap-12 md:grid-cols-4">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500 font-bold text-white">
                 KK
@@ -16,32 +16,34 @@ export default function Footer() {
                 <h2 className="text-lg font-bold">
                   KK Procurement Solutions
                 </h2>
+
                 <p className="text-sm text-slate-400">
-                  Procurement • Sourcing • Supplier Strategy
+                  Strategic Sourcing • Supplier Cost Reduction
                 </p>
               </div>
             </div>
 
-            <p className="mt-6 text-sm leading-7 text-slate-400">
-              Helping small and mid-sized businesses reduce supplier costs,
-              improve procurement systems, and strengthen supply chain
-              performance.
+            <p className="mt-6 max-w-md text-sm leading-7 text-slate-400">
+              Helping small and mid-sized product companies reduce supplier
+              costs, source components and raw materials, strengthen supplier
+              negotiations, and build more resilient supply chains.
             </p>
+
+            <Link
+              href="/contact"
+              className="mt-6 inline-block text-sm font-semibold text-blue-400 transition hover:text-blue-300"
+            >
+              Request a Free Supplier Savings Assessment →
+            </Link>
           </div>
 
-          {/* Navigation */}
+          {/* Company */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Navigation
+              Company
             </h3>
 
-            <ul className="mt-5 space-y-3 text-slate-300">
-              <li>
-                <Link href="/" className="hover:text-blue-400">
-                  Home
-                </Link>
-              </li>
-
+            <ul className="mt-5 space-y-3 text-sm text-slate-300">
               <li>
                 <Link href="/services" className="hover:text-blue-400">
                   Services
@@ -68,28 +70,43 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Resources */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
-              Legal
+              Resources
             </h3>
 
-            <ul className="mt-5 space-y-3 text-slate-300">
+            <ul className="mt-5 space-y-3 text-sm text-slate-300">
               <li>
-                <Link
-                  href="/privacy-policy"
-                  className="hover:text-blue-400"
-                >
-                  Privacy Policy
+                <Link href="/blog" className="hover:text-blue-400">
+                  Procurement Resources
                 </Link>
               </li>
 
               <li>
                 <Link
-                  href="/terms-of-service"
+                  href="/blog?topic=supplier-cost-reduction"
                   className="hover:text-blue-400"
                 >
-                  Terms of Service
+                  Supplier Cost Reduction
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/blog?topic=strategic-sourcing"
+                  className="hover:text-blue-400"
+                >
+                  Strategic Sourcing
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/blog?topic=procurement-strategy"
+                  className="hover:text-blue-400"
+                >
+                  Procurement Strategy
                 </Link>
               </li>
             </ul>
@@ -101,22 +118,22 @@ export default function Footer() {
               Contact
             </h3>
 
-            <div className="mt-5 space-y-4 text-slate-300">
+            <div className="mt-5 space-y-4 text-sm text-slate-300">
               <div>
-                <p className="text-sm text-slate-400">Email</p>
+                <p className="text-slate-500">Email</p>
                 <a
-                  href="mailto:kkprocurementsolutions@yahoo.com"
-                  className="hover:text-blue-400"
+                  href="mailto:sourcing@kk-procurement-solutions.com"
+                  className="break-words transition hover:text-blue-400"
                 >
-                  kkprocurementsolutions@yahoo.com
+                  sourcing@kk-procurement-solutions.com
                 </a>
               </div>
 
               <div>
-                <p className="text-sm text-slate-400">Phone</p>
+                <p className="text-slate-500">Phone</p>
                 <a
-                  href="tel:4132075197"
-                  className="hover:text-blue-400"
+                  href="tel:+14132075197"
+                  className="transition hover:text-blue-400"
                 >
                   (413) 207-5197
                 </a>
@@ -126,11 +143,27 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+        <div className="mt-12 flex flex-col gap-4 border-t border-slate-800 pt-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} KK Procurement Solutions. All rights
             reserved.
           </p>
+
+          <div className="flex gap-5">
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-slate-300"
+            >
+              Privacy Policy
+            </Link>
+
+            <Link
+              href="/terms-of-service"
+              className="transition hover:text-slate-300"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

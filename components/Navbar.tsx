@@ -28,13 +28,13 @@ export default function Navbar() {
               KK Procurement Solutions
             </p>
             <p className="text-xs text-slate-400">
-              Procurement • Sourcing • Supplier Strategy
+              Strategic Sourcing • Supplier Cost Reduction
             </p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -49,19 +49,21 @@ export default function Navbar() {
             href="/contact"
             className="rounded-xl bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-400"
           >
-            Free Consultation
+            Free Savings Assessment
           </Link>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
-          className="flex flex-col gap-1 md:hidden"
+          type="button"
+          className="flex flex-col gap-1.5 md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
         >
-          <span className="h-0.5 w-6 bg-white"></span>
-          <span className="h-0.5 w-6 bg-white"></span>
-          <span className="h-0.5 w-6 bg-white"></span>
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
         </button>
       </div>
 
@@ -85,7 +87,7 @@ export default function Navbar() {
               className="mt-6 rounded-xl bg-blue-500 px-5 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Free Consultation
+              Free Savings Assessment
             </Link>
           </div>
         </div>

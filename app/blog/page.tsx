@@ -179,7 +179,7 @@ export default async function BlogPage() {
             href="/contact"
             className="mt-8 inline-flex rounded-lg bg-slate-950 px-6 py-3 font-semibold text-white transition hover:bg-slate-800"
           >
-            Get a Free Supplier Savings Assessment
+            Discuss Your Sourcing Needs
           </Link>
         </div>
       </section>

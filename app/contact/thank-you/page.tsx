@@ -65,7 +65,7 @@ export default function ThankYouPage() {
 
           {/* Contact Info */}
           <div className="mt-10 text-slate-400">
-            <p>Email: kkprocurementsolutions@yahoo.com</p>
+            <p>Email: sourcing@kk-procurement-solutions.com</p>
             <p>Phone: (413) 207-5197</p>
           </div>
 

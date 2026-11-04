@@ -372,7 +372,7 @@ export default async function BlogPostPage({
                   href="/contact"
                   className="rounded-lg bg-white px-5 py-3 font-semibold text-slate-950 transition hover:bg-slate-200"
                 >
-                  Get a Free Supplier Savings Assessment
+                  Discuss Your Sourcing Needs
                 </Link>
 
                 {post.relatedService && (

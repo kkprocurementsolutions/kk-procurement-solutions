@@ -46,9 +46,7 @@ export const metadata: Metadata = {
     "procurement services",
   ],
 
-  alternates: {
-    canonical: "/",
-  },
+
 
   openGraph: {
     type: "website",

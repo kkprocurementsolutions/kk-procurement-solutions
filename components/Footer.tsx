@@ -33,7 +33,7 @@ export default function Footer() {
               href="/contact"
               className="mt-6 inline-block text-sm font-semibold text-blue-400 transition hover:text-blue-300"
             >
-              Request a Free Supplier Savings Assessment →
+              Discuss Your Sourcing Needs →
             </Link>
           </div>
 

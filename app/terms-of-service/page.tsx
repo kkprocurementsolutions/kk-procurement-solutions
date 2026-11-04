@@ -217,7 +217,7 @@ export default function TermsOfServicePage() {
 
             <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-900 p-6">
               <p>KK Procurement Solutions</p>
-              <p>Email: kkprocurementsolutions@yahoo.com</p>
+              <p>Email: sourcing@kk-procurement-solutions.com</p>
               <p>Phone: (413) 207-5197</p>
             </div>
           </div>

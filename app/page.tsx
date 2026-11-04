@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
+
 import Link from "next/link";
 
 const services = [
@@ -33,23 +41,23 @@ const industries = [
 const steps = [
   {
     number: "01",
-    title: "Understand Your Spend",
-    text: "We review what you buy, where you buy it, supplier relationships, volumes, pricing, and current sourcing challenges.",
+    title: "Discuss Your Needs",
+    text: "We learn about your purchasing categories, suppliers, sourcing challenges, and business priorities.",
   },
   {
     number: "02",
     title: "Identify Opportunities",
-    text: "We look for pricing gaps, negotiation opportunities, alternative suppliers, sourcing risks, and ways to improve total landed cost.",
+    text: "We evaluate supplier options, potential cost improvements, sourcing risks, and purchasing opportunities.",
   },
   {
     number: "03",
-    title: "Build the Strategy",
-    text: "You receive practical recommendations prioritized around potential savings, supply continuity, effort, and business impact.",
+    title: "Define the Engagement",
+    text: "We agree on the scope, responsibilities, deliverables, and expectations for a one-time project or ongoing partnership.",
   },
   {
     number: "04",
-    title: "Execute",
-    text: "When needed, we can support supplier negotiations, RFQs, supplier searches, implementation, and ongoing procurement activities.",
+    title: "Execute & Improve",
+    text: "We support agreed supplier searches, RFQs, negotiations, implementation, and ongoing procurement activities.",
   },
 ];
 
@@ -68,10 +76,11 @@ export default function Home() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Strategic sourcing and procurement support for small and mid-sized
-            product companies. We help businesses reduce supplier costs, source
-            components and raw materials, improve negotiations, and build
-            stronger domestic and international supply chains.
+            Strategic sourcing and outsourced procurement services for small
+            and mid-sized manufacturers and product companies. Whether you
+            need help finding a supplier, negotiating better pricing, or
+            managing ongoing sourcing activities, we provide practical
+            procurement support tailored to your business.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -79,9 +88,8 @@ export default function Home() {
               href="/contact"
               className="rounded-xl bg-blue-500 px-6 py-3 text-center font-semibold text-white transition hover:bg-blue-400"
             >
-              Get a Free Supplier Savings Assessment
+              Discuss Your Sourcing Needs
             </Link>
-
             <Link
               href="/services"
               className="rounded-xl border border-slate-700 px-6 py-3 text-center font-semibold text-white transition hover:bg-slate-900"
@@ -90,10 +98,79 @@ export default function Home() {
             </Link>
           </div>
 
-          <p className="mt-5 text-sm text-slate-500">
-            No long-term commitment. Start with a conversation about your
-            suppliers, sourcing challenges, and potential opportunities.
+          <p className="mt-5 text-sm text-slate-400">
+            One-time projects or ongoing partnerships. Start with a
+            conversation about your purchasing needs.
           </p>
+        </div>
+      </section>
+
+      {/* Engagement Options */}
+      <section className="px-6 pb-20 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+              Ways to Work With Us
+            </p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+              The right sourcing support for your business.
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="flex flex-col rounded-2xl border border-slate-800 bg-slate-900 p-8">
+              <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">
+                Project-Based Support
+              </p>
+              <h3 className="mt-4 text-2xl font-bold">
+                One-Time Sourcing Projects
+              </h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Need a new supplier, better pricing, or help with a
+                specific purchasing challenge? Get focused sourcing
+                expertise for a defined project.
+              </p>
+              <ul className="mt-6 flex-1 space-y-3 text-slate-300">
+                <li>✓ Supplier discovery and qualification</li>
+                <li>✓ Competitive RFQs and supplier comparisons</li>
+                <li>✓ Supplier negotiations and cost reduction</li>
+                <li>✓ Domestic and international sourcing</li>
+              </ul>
+              <Link
+                href="/services"
+                className="mt-8 inline-block font-semibold text-blue-400 transition hover:text-blue-300"
+              >
+                Explore Project-Based Services →
+              </Link>
+            </div>
+
+            <div className="flex flex-col rounded-2xl border border-blue-500/40 bg-slate-900 p-8">
+              <p className="text-sm font-semibold uppercase tracking-wider text-blue-400">
+                Ongoing Procurement Support
+              </p>
+              <h3 className="mt-4 text-2xl font-bold">
+                Managed Sourcing Partnerships
+              </h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Need ongoing supplier sourcing and procurement support
+                without building a full-time sourcing department?
+                Establish a flexible partnership built around your
+                purchasing priorities.
+              </p>
+              <ul className="mt-6 flex-1 space-y-3 text-slate-300">
+                <li>✓ Ongoing supplier sourcing and evaluation</li>
+                <li>✓ RFQ management and pricing negotiations</li>
+                <li>✓ Supplier relationship and performance support</li>
+                <li>✓ Recurring procurement planning and execution</li>
+              </ul>
+              <Link
+                href="/managed-sourcing-partnerships"
+                className="mt-8 inline-block font-semibold text-blue-400 transition hover:text-blue-300"
+              >
+                Explore Managed Sourcing Partnerships →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -271,7 +348,7 @@ export default function Home() {
             </p>
 
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              Start by finding where the opportunity is.
+              A straightforward approach to better sourcing.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -326,7 +403,7 @@ export default function Home() {
       <section className="px-6 pb-24 pt-6 md:px-12 lg:px-20">
         <div className="mx-auto max-w-5xl rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-10 text-center md:p-14">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
-            Free Supplier Savings Assessment
+            Let's Talk Sourcing
           </p>
 
           <h2 className="mt-4 text-3xl font-bold md:text-4xl">
@@ -343,7 +420,7 @@ export default function Home() {
             href="/contact"
             className="mt-8 inline-block rounded-xl bg-blue-500 px-7 py-3 font-semibold text-white transition hover:bg-blue-400"
           >
-            Request Your Free Assessment
+            Discuss Your Sourcing Needs
           </Link>
         </div>
       </section>

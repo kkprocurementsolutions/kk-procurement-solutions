@@ -78,6 +78,11 @@ export default function Footer() {
 
             <ul className="mt-5 space-y-3 text-sm text-slate-300">
               <li>
+                <Link href="/tools" className="hover:text-blue-400">
+                  Tools
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="hover:text-blue-400">
                   Procurement Resources
                 </Link>

@@ -12,6 +12,7 @@ const navLinks = [
     href: "/managed-sourcing-partnerships",
   },
   { name: "Industries", href: "/industries" },
+  { name: "Tools", href: "/tools" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];

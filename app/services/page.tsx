@@ -1,3 +1,15 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Procurement Consulting Services & Strategic Sourcing",
+  description:
+    "Procurement consulting services for manufacturers and growing businesses. Strategic sourcing, supplier cost reduction, RFQs, negotiations, and outsourced procurement support.",
+  alternates: {
+    canonical: "/services",
+  },
+};
+
 export default function ServicesPage() {
   const services = [
     {
@@ -84,14 +96,11 @@ export default function ServicesPage() {
           </p>
 
           <h1 className="max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
-            Practical procurement solutions designed to reduce costs and strengthen supply chains.
+            Procurement Consulting Services & Strategic Sourcing
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            KK Procurement Solutions helps businesses uncover hidden supplier
-            savings, optimize procurement processes, improve supplier
-            performance, and build stronger sourcing strategies tailored to
-            growth.
+            KK Procurement Solutions provides practical procurement consulting services for manufacturers, importers, and growing businesses. We help identify supplier cost reduction opportunities, manage competitive sourcing events, negotiate stronger commercial terms, and develop domestic and international sourcing strategies.
           </p>
         </div>
       </section>
@@ -123,6 +132,33 @@ export default function ServicesPage() {
               </ul>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Landed Cost Calculator */}
+      <section className="px-6 pb-24 md:px-12 lg:px-20">
+        <div className="mx-auto max-w-6xl rounded-3xl border border-blue-900 bg-slate-900 p-8 md:p-12">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-400">
+            Sourcing Analysis Tool
+          </p>
+
+          <h2 className="mt-4 text-3xl font-bold">
+            Compare Your Suppliers by Total Landed Cost
+          </h2>
+
+          <p className="mt-5 max-w-3xl leading-8 text-slate-300">
+            Factory price alone does not tell the full story.
+            Use our landed cost calculator to compare supplier
+            pricing, international freight, duties, and other
+            logistics expenses before making sourcing decisions.
+          </p>
+
+          <Link
+            href="/tools/landed-cost-calculator"
+            className="mt-8 inline-block rounded-xl bg-blue-500 px-6 py-3 font-semibold text-white transition hover:bg-blue-400"
+          >
+            Open Landed Cost Calculator
+          </Link>
         </div>
       </section>
 

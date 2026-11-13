@@ -1,12 +1,48 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
 export default function ContactPage() {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  const [calculatorInquiry, setCalculatorInquiry] = useState("");
+  const [calculatorSource, setCalculatorSource] = useState(false);
+
+  useEffect(() => {
+    const fromCalculator =
+      new URLSearchParams(window.location.search).get("source") ===
+      "landed-cost-calculator";
+
+    if (!fromCalculator) return;
+
+    // Read browser storage after mount and update state asynchronously.
+    const controller = new AbortController();
+
+    Promise.resolve().then(() => {
+      if (controller.signal.aborted) return;
+
+      setCalculatorSource(true);
+
+      try {
+        const saved = window.sessionStorage.getItem(
+          "kkps_calculator_inquiry"
+        );
+
+        if (saved) {
+          setCalculatorInquiry(saved);
+          window.sessionStorage.removeItem("kkps_calculator_inquiry");
+        }
+      } catch {
+        // Contact form remains usable without session storage.
+      }
+    });
+
+    return () => controller.abort();
+  }, []);
+
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -17,6 +53,10 @@ export default function ContactPage() {
 
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+
+    if (calculatorSource) {
+      data.source = "landed-cost-calculator";
+    }
 
     try {
       const response = await fetch("/api/contact", {
@@ -53,12 +93,12 @@ export default function ContactPage() {
             Contact KK Procurement Solutions
           </p>
           <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">
-            Let's discuss your sourcing needs.
+            Let&apos;s discuss your sourcing needs.
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
             Whether you need a new supplier, lower purchasing costs,
             competitive quotations, or ongoing procurement support,
-            tell us about your business and the challenge you're facing.
+            tell us about your business and the challenge you&apos;re facing.
           </p>
         </div>
       </section>
@@ -112,11 +152,23 @@ export default function ContactPage() {
               Request a sourcing consultation
             </h2>
             <p className="mt-3 text-slate-300">
-              Share a few details and we'll review your inquiry.
+              Share a few details and we&apos;ll review your inquiry.
               Engagements are scoped and quoted individually.
             </p>
 
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+            {calculatorSource && (
+                <div className="mb-6 rounded-xl border border-blue-700 bg-blue-950/40 p-5">
+                  <p className="font-semibold text-blue-300">
+                    Landed Cost Assessment
+                  </p>
+                  <p className="mt-2 text-sm text-slate-300">
+                    Review your calculator comparison in the message field
+                    before submitting. Please avoid sharing confidential pricing.
+                  </p>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div
                 className="absolute -left-[9999px]"
                 aria-hidden="true"
@@ -246,6 +298,8 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
+                  value={calculatorInquiry}
+                  onChange={(event) => setCalculatorInquiry(event.target.value)}
                   rows={6}
                   required
                   maxLength={3000}
@@ -269,7 +323,7 @@ export default function ContactPage() {
               </button>
 
               <p className="text-center text-xs leading-5 text-slate-400">
-                Please don't include confidential supplier pricing,
+                Please don&apos;t include confidential supplier pricing,
                 proprietary drawings, or sensitive business information
                 in this initial inquiry.
               </p>

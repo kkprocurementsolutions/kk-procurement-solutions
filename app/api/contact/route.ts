@@ -21,6 +21,11 @@ export async function POST(request: NextRequest) {
     const phone = clean(body.phone);
     const spend = clean(body.spend);
     const engagement = clean(body.engagement);
+    const source = clean(body.source);
+    const leadSource =
+      source === "landed-cost-calculator"
+        ? "Landed Cost Calculator"
+        : "Website Contact Form";
     const message = clean(body.message, 3000);
     const website = clean(body.website);
 
@@ -60,6 +65,7 @@ export async function POST(request: NextRequest) {
       text: [
         "New KK Procurement Solutions inquiry",
         "",
+        `Lead Source: ${leadSource}`,
         `Name: ${name}`,
         `Company: ${company}`,
         `Email: ${email}`,

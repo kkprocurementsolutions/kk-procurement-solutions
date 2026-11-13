@@ -181,6 +181,34 @@ export default function LandedCostCalculator() {
   const annualDifference =
     differencePerUnit * numberValue(annualUnits);
 
+  function requestAssessment() {
+    if (!comparable) return;
+
+    const summary = [
+      "Landed Cost Calculator Assessment Request",
+      "",
+      "I compared two sourcing options using the landed cost calculator.",
+      `Order quantity: ${resultA.quantity.toLocaleString("en-US")} units`,
+      `Option A landed cost per unit: ${currency(resultA.perUnit)}`,
+      `Option B landed cost per unit: ${currency(resultB.perUnit)}`,
+      `Estimated difference per order: ${currency(difference)}`,
+      `Estimated difference per unit: ${currency(differencePerUnit)}`,
+      ...(annualUnits.trim() !== "" && annualValid
+        ? [`Illustrative annual cost difference: ${currency(annualDifference)}`]
+        : []),
+      "",
+      "I would like to discuss validating these estimates and identifying sourcing savings.",
+    ].join("\n");
+
+    try {
+      window.sessionStorage.setItem("kkps_calculator_inquiry", summary);
+    } catch {
+      // Visitors can still access the contact form.
+    }
+
+    window.location.assign("/contact?source=landed-cost-calculator");
+  }
+
   function renderSupplier(
     supplier: Supplier,
     update: (supplier: Supplier) => void
@@ -403,7 +431,38 @@ export default function LandedCostCalculator() {
               </div>
             </div>
           )}
-        </section>
+        
+            {comparable && (
+              <div className="mt-8 rounded-2xl border border-blue-700 bg-blue-950/30 p-6 md:p-8">
+                <p className="text-sm font-semibold uppercase tracking-wide text-blue-300">
+                  Next Step
+                </p>
+
+                <h3 className="mt-3 text-2xl font-bold text-white">
+                  Want to validate your potential sourcing savings?
+                </h3>
+
+                <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                  KK Procurement Solutions helps manufacturers evaluate
+                  supplier proposals, uncover hidden landed costs, and
+                  identify purchasing cost reduction opportunities.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={requestAssessment}
+                  className="mt-6 inline-block rounded-xl bg-blue-500 px-6 py-4 font-semibold text-white transition hover:bg-blue-400"
+                >
+                  Request a Supplier Cost Assessment
+                </button>
+
+                <p className="mt-3 text-xs text-slate-400">
+                  Discuss your sourcing opportunities with a procurement consultant.
+                </p>
+              </div>
+            )}
+
+</section>
       )}
     </div>
   );
